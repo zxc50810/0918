@@ -13,12 +13,42 @@
 </head>
 
 <body>
-    身高(cm):<input type="text" id="height" value="160"><br>
-    體重(kg):<input type="text" id="weight" value="52"><br>
-    <button onclick="calcBmi()">計算</button>
+    
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">身高(cm)</span>
+        </div>
+        <input id="height" value="180" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+     <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">體重(kg)</span>
+        </div>
+        <input id="weight" value="85" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="calcBmi()">計算</button>
     <hr>
 
+    BMI: <span id="bmi"></span> <br>
+    <script>
+        function calcBmi() {
+            var h = document.getElementById("height").value;
+            h = parseFloat(h) / 100;
 
+            var w = document.getElementById("weight").value;
+            w = parseFloat(w);
+
+            bmi = w / (h * h);
+            if (bmi < 25) {
+                ans = "體重過輕";
+            } else if (bmi > 30) {
+                ans = "體重過重";
+           } else if (bmi >= 25 && bmi <= 30) {
+               ans = "體重正常";
+           }
+    document.getElementById("bmi").innerText = Math.round(bmi * 100) / 100 + ans;
+    }
+    </script>
 </body>
 
 </html>

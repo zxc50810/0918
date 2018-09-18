@@ -1,0 +1,32 @@
+<!doctype <!DOCTYPE html>
+<html>
+
+<body>
+    
+    <script>
+
+    function getbmi(w,h){
+        return w/(h*h);
+    }
+    
+    var w = 52; // 52 kg
+    var h = 1.6; // 1.6m
+    
+    var BMI = w / (h*h);
+
+    document.write("當體重" + w +"公斤，身高" + h*100 + "公分<br>");
+    // document.write("BMI是" + BMI)
+    document.write("BMI是" + Math.round(BMI)+ "<br>");
+
+    if(BMI>23)
+      ans = ("過重");
+    else if(BMI<18)
+      ans = ("過輕");
+    else 
+      ans = ("適中")
+      
+    document.write(ans);
+
+    </script>
+</body>
+</html>
